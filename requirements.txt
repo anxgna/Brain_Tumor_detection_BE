@@ -6,7 +6,7 @@ pydantic
 pydantic-settings
 email-validator
 python-multipart
-tensorflow-cpu
+tensorflow
 pillow
 opencv-python-headless
 passlib
