@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+
+# Local databases and uploads should mostly be ignored unless you want to ship them 
+brain_tumor.db
+uploads/
+brainmridataset/
+
+# Environments
+.env
+
+# git
+.git
+.gitignore

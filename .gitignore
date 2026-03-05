@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+brainmridataset/
+uploads/
+*.db
+.pytest_cache/
+model/*.h5
+test_generator.py
+test_model.py

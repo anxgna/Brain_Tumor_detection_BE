@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+pymysql
+pydantic
+pydantic-settings
+email-validator
+python-multipart
+tensorflow-cpu
+pillow
+opencv-python-headless
+passlib
+bcrypt
+python-jose
