@@ -13,6 +13,19 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
+import traceback
+from fastapi import Request
+from fastapi.responses import JSONResponse
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    print(f"Global Error Catch: {exc}")
+    traceback.print_exc()
+    return JSONResponse(
+        status_code=500,
+        content={"error": "internal_error", "message": str(exc), "traceback": traceback.format_exc()}
+    )
+
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
