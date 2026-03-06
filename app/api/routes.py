@@ -19,8 +19,11 @@ async def upload_scan(
     Endpoint to upload an MRI scan.
     """
     # 1. Ensure file type is an image
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="File provided is not an image.")
+    if not file.content_type or not file.content_type.startswith("image/"):
+        # Fallback to check file extension if content-type is missing (common with python requests)
+        ext = os.path.splitext(file.filename)[1].lower() if file.filename else ""
+        if ext not in [".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".gif"]:
+            raise HTTPException(status_code=400, detail="File provided is not an image.")
 
     # 2. Save file
     file_path = await process_upload_file(file)
